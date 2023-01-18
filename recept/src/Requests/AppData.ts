@@ -1,4 +1,5 @@
 import { CourseModel } from "../Models/CourseModel";
+import { FoodCategoryModel } from "../Models/FoodCategoryModel";
 import { http } from "./http";
 
 export const getCourses = async (): Promise<CourseModel[]> => {
@@ -12,4 +13,18 @@ export const getCourses = async (): Promise<CourseModel[]> => {
 	}
 
 	return courses;
+};
+
+export const getCategories = async (): Promise<FoodCategoryModel[]> => {
+	let categories: FoodCategoryModel[] = [];
+
+	const result = await http<FoodCategoryModel[]>({
+		path: "/FoodCategory",
+	});
+
+	if (result.ok && result.body) {
+		categories = result.body;
+	}
+
+	return categories;
 };
