@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppState } from "../../Store/state";
 import { gettingCoursesAction } from "../../Store/Actions/Course/gettingCoursesAction";
 import { gotCoursesAction } from "../../Store/Actions/Course/gotCourseAction";
+import Categories from "../Categories/Categories";
 
 const Thumbnails = () => {
 	const dispatch = useDispatch();
@@ -25,7 +26,11 @@ const Thumbnails = () => {
 	}, [dispatch]);
 
 	console.log("courses ", courses);
-	return <div>Thumbnails Component</div>;
+	return (
+		<>
+			<Categories />
+		</>
+	);
 };
 
 export default Thumbnails;
