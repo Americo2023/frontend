@@ -1,11 +1,9 @@
 import {
 	GETTINGCATEGORIES,
-	gettingCategoriesAction,
-} from "../Actions/Categories/gettingCategoriesAction";
-import {
 	GOTCATEGORIES,
+	gettingCategoriesAction,
 	gotCategoriesAction,
-} from "../Actions/Categories/gotCategoriesAction";
+} from "../Actions/category";
 import { initialCategoryState } from "../state";
 
 type categoryActions =
