@@ -4,12 +4,19 @@ import {
 	combineReducers,
 } from "redux";
 import { categoryReducer } from "./Reducers/CategoryReducer";
-import { courseReducer } from "./Reducers/CourseReducer";
+import { maltidReducer } from "./Reducers/MaltidReducer";
+import { recipesReducer, recipeReducer } from "./Reducers/RecipeRedurcer";
+import { stepReducer } from "./Reducers/StepReducer";
+import { amountReducer } from "./Reducers/AmountReducer";
 import { AppState } from "./state";
 
 const rootReducer = combineReducers<AppState>({
-	courses: courseReducer,
+	maltid: maltidReducer,
 	categories: categoryReducer,
+	recipes: recipesReducer,
+	recipe: recipeReducer,
+	steps: stepReducer,
+	amounts: amountReducer,
 });
 
 export function configureStore(): Store<AppState> {

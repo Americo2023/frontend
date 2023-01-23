@@ -1,6 +1,6 @@
-export interface IQuantityRequest {
+export interface IAmountRequest {
 	recipe_id: number;
 	ingredient_id: number;
 	ingredient_measurement_id: number;
-	ingredient_quantity: string;
+	ingredient_amount: string;
 }

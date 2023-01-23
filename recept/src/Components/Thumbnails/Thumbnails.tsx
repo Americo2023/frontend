@@ -1,34 +1,38 @@
 import React, { useEffect } from "react";
-import { getCourses } from "../../Requests/AppData";
+import { getMaltid } from "../../Requests/AppData";
 import { useSelector, useDispatch } from "react-redux";
 import { AppState } from "../../Store/state";
-import { gettingCoursesAction } from "../../Store/Actions/Course/gettingCoursesAction";
-import { gotCoursesAction } from "../../Store/Actions/Course/gotCourseAction";
+import {
+	gettingMaltidAction,
+	gotMaltidAction,
+} from "../../Store/Actions/maltid";
 import Categories from "../Categories/Categories";
+import Courses from "../Maltid/Maltid";
 
 const Thumbnails = () => {
 	const dispatch = useDispatch();
-	const courses = useSelector((state: AppState) => state.courses.courses);
+	const maltid = useSelector((state: AppState) => state.maltid.maltid);
 
 	useEffect(() => {
 		let cancelled = false;
-		let doGetCourses = async () => {
-			dispatch(gettingCoursesAction());
-			const courses = await getCourses();
+		let doGetMaltid = async () => {
+			dispatch(gettingMaltidAction());
+			const maltid = await getMaltid();
 			if (!cancelled) {
-				dispatch(gotCoursesAction(courses));
+				dispatch(gotMaltidAction(maltid));
 			}
 		};
-		doGetCourses();
+		doGetMaltid();
 		return () => {
 			cancelled = true;
 		};
 	}, [dispatch]);
 
-	console.log("courses ", courses);
+	console.log("courses ", maltid);
 	return (
 		<>
 			<Categories />
+			<Courses />
 		</>
 	);
 };
